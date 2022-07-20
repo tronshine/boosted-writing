@@ -15,7 +15,9 @@
     "next-sitemap": "^3.1.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "stripe": "^9.13.0"
+    "stripe": "^9.13.0",
+    "@stripe/react-stripe-js": "^1.9.0",
+    "@stripe/stripe-js": "^1.32.0"
   },
   "devDependencies": {
     "@types/node": "18.0.3",
