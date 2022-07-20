@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.red-timer {
+  background-color: rgb(220, 38, 38);
+  box-shadow: 0 0 2em 2px rgb(226, 0, 0);
+}
+
+.green-timer {
+  background-color: rgb(22, 163, 74);
+  box-shadow: 0 0 2em 2px rgb(22, 163, 74);
+}
+
+.cta {
+  animation: brilla-fire 2s alternate infinite;
+}
+
+.cta:hover {
+  box-shadow: 0 0 2em 2px rgb(226, 0, 0) !important;
+}
+
+.red-glowing {
+  text-shadow: rgb(226, 0, 0) 0 0 1.4em;
+}
+
+.white-glowing {
+  text-shadow: rgb(255, 255, 255) 0 0 1.4em;
+}
+
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.background {
+  background-color: #fee382;
+  background-image: linear-gradient(179deg, #fee382 0%, #ff833c 100%);
+}
+
+@keyframes brilla-fire{
+  0%, 100%{
+  box-shadow: 
+    0 0 10px 5px rgba(225,50,0,0.8),
+    0 0 20px 10px rgba(225,50,0,0.6),
+    0 0 30px 15px rgba(225,50,0,0.3);
+  }
+  50%{
+  box-shadow: 
+    0 0 14px 7px rgba(225, 50, 0, 0.8),
+    0 0 28px 14px rgba(225,50,0,0.6),
+    0 0 50px 21px rgba(225,50,0,0.3);
+  }
+}
+

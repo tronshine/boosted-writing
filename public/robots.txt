@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://boosted-writing.com
+
+# Sitemaps
+Sitemap: https://boosted-writing.com/sitemap.xml
