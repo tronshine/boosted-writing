@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import { decode } from 'js-base64';
 
 const SucceededDialog = ({ succeeded, restart }) => {
 
@@ -14,6 +15,16 @@ const SucceededDialog = ({ succeeded, restart }) => {
       console.error(text);
       setCopied(false);
     }
+  };
+
+  const continew = () => {
+    restart(true);
+    setCopied(false);
+  };
+
+  const deleteh = () => {
+    restart(false);
+    setCopied(false);
   };
 
   return (
@@ -64,13 +75,13 @@ const SucceededDialog = ({ succeeded, restart }) => {
                   </button>
                   <button
                     className='mr-4 rounded-md border border-transparent bg-green-200 px-4 py-2 font-medium text-green-700 hover:bg-green-300 outline-none bg-opacity-75 transition-all'
-                    onClick={() => restart(false)}
+                    onClick={continew}
                   >
                     continue 🏄🏾
                   </button>
                   <button
                     className='rounded-md border border-transparent bg-red-200 px-4 py-2 font-medium text-red-700 hover:bg-orange-200 outline-none bg-opacity-75 transition-all'
-                    onClick={() => restart(true)}
+                    onClick={deleteh}
                   >
                     delete ⛈
                   </button>
