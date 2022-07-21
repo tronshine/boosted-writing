@@ -9,14 +9,17 @@ import { encode, decode } from 'js-base64';
 const WritingPage = csrPage(() => {
 
   const isFast = 'fast' === (localStorage.getItem('plan') || 'fast');
+  const isLength = 'length' === (localStorage.getItem('type') || 'length');
   const initTimeoutTime = (isFast ? 5 : 15) * 1000;
   const initCheckpointTime = (isFast ? 2 : 5) * 60 * 1000;
+  const initCharacterCount = (isFast ? 500 : 1000);
 
   const [text, setText] = useState('');
 
-  const [succeeded, setsucceeded] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
   const [failed, setFailed] = useState(false);
   const [stopped, setStopped] = useState(true);
+  const [characterCount, setCharacterCount] = useState(0);
 
   const [timeoutTime, initTimeoutInterval, startTimeoutInterval, stopTimeoutInterval] = useInterval(initTimeoutTime, 100);
   const [checkpointTime, initCheckpointInterval, startCheckpointInterval, stopCheckpointInterval] = useInterval(initCheckpointTime, 1000);
@@ -36,9 +39,11 @@ const WritingPage = csrPage(() => {
   };
 
   useEffect(() => { timeoutTime <= 0 && stop(); }, [timeoutTime]);
-  useEffect(() => { checkpointTime <= 0 && setsucceeded(true); }, [checkpointTime]);
+  useEffect(() => { checkpointTime <= 0 && !isLength && setSucceeded(true); }, [checkpointTime]);
+  useEffect(() => { ((initCharacterCount - characterCount) <= 0) && isLength && setSucceeded(true); }, [characterCount]);
 
   const onChange = value => {
+    setCharacterCount(characterCount + (value.length - text.length));
     setText(value);
 
     setStopped(false);
@@ -57,8 +62,9 @@ const WritingPage = csrPage(() => {
     }
 
     setStopped(true);
-    setsucceeded(false);
+    setSucceeded(false);
     setFailed(false);
+    setCharacterCount(0);
 
     initTimeoutInterval();
     initCheckpointInterval();
@@ -79,6 +85,7 @@ const WritingPage = csrPage(() => {
         className={`sticky top-0 h-[0.5vh] transition-all duration-300 ease-out ${succeeded ? 'green-timer' : 'red-timer'}`}
         style={{ width: `${timeoutTime / initTimeoutTime * 100}%` }}
       />
+
       <main onClick={focus} className='min-w-screen min-h-[98vh] h-full'>
         <div className='flex justify-center min-h-[98vh] h-full w-full' >
           <div className='min-h-full max-w-screen-md w-full m-1 mt-5 bg-white rounded-lg bg-opacity-50'>
@@ -93,10 +100,15 @@ const WritingPage = csrPage(() => {
           </div>
         </div>
       </main>
+
       <div className='fixed bottom-2 right-2 text-center w-12 py-1 bg-slate-600 rounded-lg opacity-40 '>
         <div className='text-white font-extralight'>
-          {Math.floor(checkpointTime / 60000)}:{Math.round(checkpointTime % 60000 / 1000)
-            .toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}
+          {isLength ? 
+            <span>{ Math.max(initCharacterCount - characterCount, 0) }</span>
+          :
+            <span>{ Math.floor(checkpointTime / 60000) }:{ Math.round(checkpointTime % 60000 / 1000)
+              .toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false }) }</span>
+          }
         </div>
       </div>
 

@@ -9,6 +9,9 @@ const LandingPage = () => {
   const [plan, setPlan] = useState(false);
   useEffect(() => localStorage.setItem('plan', plan ? 'slow' : 'fast'), [plan]);
 
+  const [type, setType] = useState(false);
+  useEffect(() => localStorage.setItem('type', type ? 'time' : 'length'), [type]);
+
   const SLOGANS = [
     'waste money 💸',
     'be lazy 🦥',
@@ -47,7 +50,8 @@ const LandingPage = () => {
 
   return (
     <div className='h-screen bg-transparent flex justify-center items-stretch justify-items-stretch w-full text-gray-800'>
-      <main className='flex flex-col justify-between md:justify-around lowercase subpixel-antialiased tracking-wide h-full w-10/12 text-center md:text-left p-3'>
+      <main className='flex flex-col justify-between md:justify-around lowercase subpixel-antialiased tracking-wide 
+        h-full w-10/12 text-center md:text-left p-3'>
         <div className='md:text-5xl text-4xl'>
           <p className='hidden md:block p-1 pb-3 font-bold '>
             BOOSTED-WRITING.COM 🔥
@@ -83,22 +87,37 @@ const LandingPage = () => {
             </div>
           </Link>
 
-          <div className='self-center m-0 mt-5 md:m-0 md:ml-5'>
+          <div className='self-center m-0 mt-5 md:m-0 md:ml-5 flex flex-row md:flex-col'>
             <Switch
               checked={plan}
               onChange={setPlan}
-              className={`${plan ? 'bg-gray-700' : 'bg-gray-400'} bg-opacity-40 relative inline-flex h-[38px] w-[96px] shrink-0 
-                cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out`}
+              className={`${plan ? 'bg-gray-700' : 'bg-gray-400'} bg-opacity-40 relative inline-flex h-[36px] w-[112px] shrink-0 
+                cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out m-1`}
             >
               <span
                 aria-hidden='true'
-                className={`${plan ? 'translate-x-12' : 'translate-x-0'} pointer-events-none inline-block h-[34px] w-[45px]
-                  transform rounded-full bg-gray-100 shadow-lg ring-0 transition duration-200 ease-in-out z-10`}
+                className={`${plan ? 'translate-x-[52px]' : 'translate-x-0'} pointer-events-none inline-block h-[32px] w-[56px]
+                  transform rounded-full bg-gray-100 shadow-lg ring-0 transition-all duration-200 ease-in-out z-10`}
               />
               <span className='absolute text-white text-center p-1 pl-2'>slow</span>
               <span className='absolute text-white text-center p-1 pr-3 right-0'>fast</span>
             </Switch>
+            <Switch
+              checked={type}
+              onChange={setType}
+              className={`${type ? 'bg-gray-700' : 'bg-gray-400'} bg-opacity-40 relative inline-flex h-[36px] w-[112px] shrink-0 
+                cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out m-1`}
+            >
+              <span
+                aria-hidden='true'
+                className={`${type ? 'translate-x-[52px] w-[56px]' : 'translate-x-0 w-[52px]'} pointer-events-none inline-block h-[32px]
+                  transform rounded-full bg-gray-100 shadow-lg ring-0 transition-all duration-200 ease-in-out z-10`}
+              />
+              <span className='absolute text-white text-center p-1 pl-2'>time</span>
+              <span className='absolute text-white text-center p-1 pr-3 right-0'>word</span>
+            </Switch>
           </div>
+
         </div>
       </main>
 
