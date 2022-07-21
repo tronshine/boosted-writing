@@ -46,23 +46,26 @@ const LandingPage = () => {
   useEffect(() => { updateSlogan(); }, []);
 
   return (
-    <div className='h-screen bg-transparent flex flex-row justify-center w-full text-gray-800 pb-1'>
-
-      <main className='flex flex-col justify-evenly lowercase subpixel-antialiased tracking-wide h-screen w-10/12 text-center md:text-left'>
+    <div className='h-screen bg-transparent flex justify-center items-stretch justify-items-stretch w-full text-gray-800'>
+      <main className='flex flex-col justify-between md:justify-around lowercase subpixel-antialiased tracking-wide h-full w-10/12 text-center md:text-left p-3'>
         <div>
           <p className='hidden md:block p-1 pb-3 font-bold md:text-6xl text-4xl'>
             BOOSTED-WRITING.COM 🔥
           </p>
-          <p className='white-glowing p-1 font-thin md:text-5xl text-4xl'><span className='md:hidden'>🚀</span> Boost your writing productivity</p>
-          <p className='white-glowing px-1 font-thin md:text-5xl text-4xl'>with paid time limits</p>
+          <p className='white-glowing p-1 font-thin md:text-5xl text-4xl'>
+            <span className='md:hidden pr-1'>🚀</span>Boost your writing productivity
+          </p>
+          <p className='white-glowing px-1 font-thin md:text-5xl text-4xl'>
+            with paid time limits
+          </p>
         </div>
 
-        <div className='font-bold md:text-5xl text-4xl h-[16rem] p-1'>
-          <div className='py-5'>
+        <div className='font-bold md:text-5xl text-4xl p-1'>
+          <div className='py-3'>
             Time is money.
           </div>
           <span className='text-red-600 pr-3 red-glowing'>
-            Do not
+            {`Don't`}
           </span>
           <span>
             {  SLOGANS[sloganIndex].slice(0, charIndex) }
@@ -72,7 +75,7 @@ const LandingPage = () => {
           </span>
         </div>
 
-        <div className='flex justify-center flex-col align-middle md:flex-row md:justify-start'>
+        <div className='flex justify-center flex-col align-middle md:flex-row md:justify-start m-0 mb-0 md:m-0 md:mb-5'>
           <Link href='/notepad'>
             <div className='cta w-100 md:w-fit bg-red-600 rounded-2xl p-5 text-white font-bold md:text-4xl text-2xl 
               hover:bg-red-500 hover:rounded-3xl cursor-pointer transition-all duration-500'>
@@ -97,15 +100,15 @@ const LandingPage = () => {
             </Switch>
           </div>
         </div>
+      </main>
 
-        <a 
-          className='absolute right-0 bottom-0 p-3 opacity-60 text-md md:text-xl'
+      <a 
+          className='fixed right-0 bottom-0 p-2 opacity-30 text-sm'
           target="_blank" rel="noopener noreferrer"
           href='https://www.linkedin.com/in/gergo-miklos/'
-        >
-          📬
-        </a>
-      </main>
+      >
+        📬
+      </a>
     </div>
   );
 };

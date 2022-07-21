@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <div className='background'>
+    <div className='background min-h-screen'>
       <Component {...pageProps} />
     </div>
   </>

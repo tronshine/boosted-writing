@@ -5,7 +5,7 @@ import { Dialog, Transition } from '@headlessui/react';
 const FailedDialog = ({ failed, restart }) => {
   return (
     <Transition show={failed} as={Fragment}>
-      <Dialog className='relative z-10' onClose={() => {/* */}}>
+      <Dialog className='relative z-20' onClose={() => {/* */}}>
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
