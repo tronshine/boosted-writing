@@ -12,7 +12,7 @@ const WritingPage = csrPage(() => {
   const isLength = 'length' === (localStorage.getItem('type') || 'length');
   const initTimeoutTime = (isFast ? 5 : 15) * 1000;
   const initCheckpointTime = (isFast ? 2 : 5) * 60 * 1000;
-  const initCharacterCount = (isFast ? 5: 1000);
+  const initCharacterCount = (isFast ? 500: 1000);
 
   const [text, setText] = useState('');
 

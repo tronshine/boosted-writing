@@ -18,12 +18,12 @@ const SucceededDialog = ({ succeeded, restart }) => {
   };
 
   const continew = () => {
-    restart(true);
+    restart(false);
     setCopied(false);
   };
 
   const deleteh = () => {
-    restart(false);
+    restart(true);
     setCopied(false);
   };
 
