@@ -4,7 +4,7 @@ import FailedDialog from '../components/failed-dialog';
 import SucceededDialog from '../components/succeeded-dialog';
 import useInterval from '../utils/use-interval';
 import csrPage from '../utils/csr-page';
-
+import { encode, decode } from 'js-base64';
 
 const WritingPage = csrPage(() => {
 
@@ -32,7 +32,7 @@ const WritingPage = csrPage(() => {
     stopTimeoutInterval();
     stopCheckpointInterval();
 
-    localStorage.setItem('text', window.btoa(text));
+    localStorage.setItem('text', encode(text));
   };
 
   useEffect(() => { timeoutTime <= 0 && stop(); }, [timeoutTime]);
@@ -51,9 +51,9 @@ const WritingPage = csrPage(() => {
   const restart = clear => {
     if (clear) {
       setText('');
-      localStorage.setItem('text', '');
+      localStorage.setItem('text', encode(''));
     } else {
-      setText(window.atob(localStorage.getItem('text')));
+      setText(decode(localStorage.getItem('text')));
     }
 
     setStopped(true);

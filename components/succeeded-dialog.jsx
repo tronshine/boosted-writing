@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react';
-import CheckoutForm from './checkout-form';
 import { Dialog, Transition } from '@headlessui/react';
 
 const SucceededDialog = ({ succeeded, restart }) => {
@@ -7,7 +6,7 @@ const SucceededDialog = ({ succeeded, restart }) => {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
-    const text = window.atob(localStorage.getItem('text'));
+    const text = decode(localStorage.getItem('text'));
     try {
       navigator.clipboard.writeText(text);
       setCopied(true);

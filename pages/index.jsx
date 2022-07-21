@@ -48,14 +48,14 @@ const LandingPage = () => {
   return (
     <div className='h-screen bg-transparent flex justify-center items-stretch justify-items-stretch w-full text-gray-800'>
       <main className='flex flex-col justify-between md:justify-around lowercase subpixel-antialiased tracking-wide h-full w-10/12 text-center md:text-left p-3'>
-        <div>
-          <p className='hidden md:block p-1 pb-3 font-bold md:text-6xl text-4xl'>
+        <div className='md:text-5xl text-4xl'>
+          <p className='hidden md:block p-1 pb-3 font-bold '>
             BOOSTED-WRITING.COM 🔥
           </p>
-          <p className='white-glowing p-1 font-thin md:text-5xl text-4xl'>
+          <p className='white-glowing p-1 font-thin pt-5 md:pt-1'>
             <span className='md:hidden pr-1'>🚀</span>Boost your writing productivity
           </p>
-          <p className='white-glowing px-1 font-thin md:text-5xl text-4xl'>
+          <p className='white-glowing px-1 font-thin'>
             with paid time limits
           </p>
         </div>
