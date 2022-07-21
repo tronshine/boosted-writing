@@ -12,17 +12,19 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <Script id="google-analytics" strategy="afterInteractive">
-      {`
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'G-2KC2ME7XX5', 'auto');
-        ga('send', 'pageview');
-      `}
-    </Script>
-    <Script
-      src="https://www.google-analytics.com/analytics.js"
+    <Script 
+      src="https://www.googletagmanager.com/gtag/js?id=G-2KC2ME7XX5"
       strategy="afterInteractive"
     />
+    <Script id="google-gtag" strategy="afterInteractive">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'G-2KC2ME7XX5');
+      `}
+    </Script>
 
     <Script id="hotjar-tracking" strategy="afterInteractive">
       {`
