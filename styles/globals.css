@@ -10,6 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.background {
+  background-color: #fee382;
+  background-image: linear-gradient(179deg, #fee382 0%, #ff833c 100%);
+}
+
 .red-timer {
   background-color: rgb(220, 38, 38);
   box-shadow: 0 0 2em 2px rgb(226, 0, 0);
@@ -39,18 +44,14 @@ body {
 .caret {
   animation: caret 1s steps(1) infinite;
 }
+
 @keyframes caret {
   50% {
     opacity: 0;
   }
 }
 
-.background {
-  background-color: #fee382;
-  background-image: linear-gradient(179deg, #fee382 0%, #ff833c 100%);
-}
-
-@keyframes brilla-fire{
+@keyframes brilla-fire {
   0%, 100%{
   box-shadow: 
     0 0 10px 5px rgba(225,50,0,0.8),

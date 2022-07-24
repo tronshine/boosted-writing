@@ -4,6 +4,14 @@ import { Switch } from '@headlessui/react';
 
 import _ from '../utils/stripe-promise';
 
+/*
+Bug bash:
+- timer line is too thin on mobile
+- 100 vh does not work on mobile (navbar)
+- make background fixed
+- cursor animation ugly no mobile (moving)
+*/
+
 const LandingPage = () => {
 
   const [plan, setPlan] = useState(false);
@@ -122,11 +130,11 @@ const LandingPage = () => {
       </main>
 
       <a 
-          className='fixed right-0 bottom-0 p-2 opacity-30 text-sm'
+          className='fixed right-0 bottom-0 p-2 opacity-30 text-sm text-white bg-transparent'
           target="_blank" rel="noopener noreferrer"
           href='https://www.linkedin.com/in/gergo-miklos/'
       >
-        📬
+        BETA 📬
       </a>
     </div>
   );
