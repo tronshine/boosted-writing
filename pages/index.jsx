@@ -9,7 +9,10 @@ Bug bash:
 - timer line is too thin on mobile
 - 100 vh does not work on mobile (navbar)
 - make background fixed
-- cursor animation ugly no mobile (moving)
+- cursor animation ugly on mobile (moving)
+- animation is Mr. Laggie on mobile
+- cloe to the end of the time limit, even if you type sg st failed appers 
+      and st bankcard input autofiller appears -> mayba add an extra pause
 */
 
 const LandingPage = () => {
@@ -134,7 +137,7 @@ const LandingPage = () => {
           target="_blank" rel="noopener noreferrer"
           href='https://www.linkedin.com/in/gergo-miklos/'
       >
-        BETA 📬
+        BETA VERSION  📬
       </a>
     </div>
   );
