@@ -74,7 +74,7 @@ const CheckoutForm = ({ onSubmit }) => {
                     className={`mr-4 disabled:bg-green-100 text-opacity-50 disabled:cursor-not-allowed rounded-md border border-transparent bg-opacity-75 transition-all
                     bg-green-200 px-4 py-2 font-medium text-green-700 hover:bg-green-300 ${isLoading && 'animate-pulse'}`}
                 >
-                    pay $1 🌳
+                    $1 for 🌳🌳🌳
                 </button>
                 <button
                     type='button'
