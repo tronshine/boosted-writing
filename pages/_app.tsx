@@ -22,7 +22,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
   
-        gtag('config', 'G-2KC2ME7XX5');
+        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
       `}
     </Script>
 
@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       {`
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:'3076388',hjsv:6};
+            h._hjSettings={hjid:'${process.env.NEXT_PUBLIC_HOTJAR_SITE_ID}',hjsv:6};
             a=o.getElementsByTagName('head')[0];
             r=o.createElement('script');r.async=1;
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;

@@ -4,17 +4,6 @@ import { Switch } from '@headlessui/react';
 
 import _ from '../utils/stripe-promise';
 
-/*
-Bug bash:
-- timer line is too thin on mobile
-- 100 vh does not work on mobile (navbar)
-- make background fixed
-- cursor animation ugly on mobile (moving)
-- animation is Mr. Laggie on mobile
-- cloe to the end of the time limit, even if you type sg st failed appers 
-      and st bankcard input autofiller appears -> mayba add an extra pause
-*/
-
 const LandingPage = () => {
 
   const [plan, setPlan] = useState(false);

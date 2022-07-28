@@ -1,6 +1,8 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
-export default page => dynamic(
+const clientSideRenderedPage =  page => dynamic(
     () => Promise.resolve(page),
     { ssr: false },
-)
+);
+
+export default clientSideRenderedPage;
